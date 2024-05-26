@@ -13,7 +13,17 @@ on:
     - 'src/**'
     - 'pom.xml'
     - '.github/workflows/maven.yml'
-
+  workflow_dispatch:
+      inputs:
+        logLevel:
+          description: 'Log level'
+          required: true
+          default: 'warning'
+          type: choice
+          options:
+          - info
+          - warning
+          - debug
   # Whenever someone submits a new pull request which modified the pom or a source file,
   # we want to ensure it compiles successfully and that all tests will pass.
   pull_request:
